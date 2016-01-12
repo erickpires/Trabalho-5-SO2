@@ -7,6 +7,11 @@ if [ ! -d "$directory" ]; then
 	exit 1
 fi
 
+if [ "$(ls "$directory")" = "" ]; then
+	echo "This directory is empty"
+	exit 0
+fi
+
 counter=1
 for file in $directory/*; do
 	echo "$counter: $(basename "$file")"
